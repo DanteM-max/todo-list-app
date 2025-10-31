@@ -3,7 +3,7 @@
     margin: 0; /* removes default margin*/
     box-sizing: border-box; /* makes element size include padding and border*/
 }
-
+/*  */
 body {
     background-color: rgb(40, 40, 40);
     color:rgb(195, 195, 195);
@@ -14,14 +14,61 @@ body {
     background-color: rgb(75, 75, 75);
     height:100vh;
     padding:20px;
+    display:flex;
+    flex-direction: column;
+    gap:15px;
 }
 
 .list {
     background-color:rgb(40, 40, 40);
+    flex-grow:1;
+    border-radius:20px;
+    padding:50px 20px;
 }
 
 .form-box {
     background-color: rgb(40, 40, 40);
     padding: 50px 20px;
     border-radius: 20px;
+}
+
+.task-item {
+    background-color: steelblue;
+    margin:8px;
+    border-radius: 8px;
+    padding:10px;
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    gap:5px;
+}
+
+.task-item input {
+    width:30px;
+    height:30px;
+}
+
+.task-item label {
+    font-size:20px;
+}
+
+.form-box {
+    display:flex;
+    gap:10px;
+}
+
+.form-box input {
+    flex-grow:1;
+    font-size:20px;
+    border-radius:10px;
+    padding:5px;
+}
+
+.form-box button {
+    background-color: inherit;
+    color:whitesmoke;
+    border:2px solid whitesmoke;
+    border-radius: 30px;
+    width:80px;
+    font-size:24px;
 }
