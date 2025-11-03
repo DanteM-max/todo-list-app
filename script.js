@@ -35,6 +35,7 @@ function addTask() {
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = "checkbox" + idNum;
+    checkbox.addEventListener("change", removeTask);
 
     //make label
     let label = document.createElement("label");
@@ -48,4 +49,14 @@ function addTask() {
     taskDiv.appendChild(label);
     taskList.appendChild(taskDiv);
     console.log("Code complete!");
+}
+
+function removeTask(event) {
+    console.log("Removing task!");
+    console.log(event.target.id);
+    let parentID = "task" + event.target.id.charAt(event.target.id.length - 1);
+    console.log("New ID: " + parentID);
+    let taskList = document.getElementById("task-list");
+    taskList.removeChild(document.getElementById(parentID));
+    console.log("Removed element!");
 }
