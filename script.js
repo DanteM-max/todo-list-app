@@ -55,7 +55,7 @@ function createTask(taskText) {
 
     //make task div
     let taskDiv = document.createElement("div");
-    let idNum = taskList.childElementCount;
+    let idNum = taskList.childElementCount + localStorage.length;
     taskDiv.id = "task" + idNum;
     if (idNum % 2 == 0) {
         taskDiv.style.backgroundColor = "steelBlue";
