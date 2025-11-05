@@ -48,16 +48,36 @@ function addTask() {
         taskDiv.appendChild(checkbox);
         taskDiv.appendChild(label);
         taskList.appendChild(taskDiv);
-        console.log("Code complete!");
+        console.log("Code complete! Task name is " + label.innerText);
     }
 
-    function removeTask(event) {
+    
+}
+
+function removeTask(event) {
         console.log("Removing task!");
         console.log(event.target.id);
-        let parentID = "task" + event.target.id.charAt(event.target.id.length - 1);
+        let parentID = "task" + event.target.id.substring(8);
         console.log("New ID: " + parentID);
         let taskList = document.getElementById("task-list");
-        taskList.removeChild(document.getElementById(parentID));
+        let taskDiv = document.getElementById(parentID);
+        taskDiv.classList.add("remove");
+        //
+        setTimeout(function() {
+            taskList.removeChild(taskDiv);
+            fixTaskColors();
+        }, 1000);
         console.log("Removed element!");
+        
+}
+
+function fixTaskColors() {
+    let taskList = document.getElementById("task-list");
+    for (let i = 0; i < taskList.childElementCount; i++) {
+        if (i % 2 == 0) {
+            taskList.children[i].style.backgroundColor = "steelBlue";
+        } else {
+            taskList.children[i].style.backgroundColor = "darkblue";
+        }
     }
 }
